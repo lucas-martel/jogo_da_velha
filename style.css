@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  color: aliceblue;
+  font-family: 'Bungee Spice', sans-serif;
+}
+
+:root{
+  --cor-background: rgb(33, 58, 58);
+  --cor-linhas: rgb(255, 102, 0);
+}
+
+body {
+  background: var(--cor-background);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+.jogo-da-velha-container {
+  background-color: var(--cor-linhas);
+  width: 100vw;
+  height: 100vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "left-top-cell top-cell right-top-cell"
+    "left-middle-cell middle-cell right-middle-cell"
+    "left-down-cell down-cell right-down-cell";
+  column-gap: 0.5em;
+  row-gap: 0.5em;
+  user-select: none;
+}
+
+@media screen and (min-width: 800px) {
+  .jogo-da-velha-container{
+    width: 30vw;
+    height: 30vw;
+  }
+}
+
+
+#ltc{grid: left-top-cell;}
+#tc{grid: top-cell;}
+#rtc{grid: right-top-cell;}
+#lmc{grid: left-middle-cell;}
+#mc{grid: middle-cell;}
+#rmc{grid: right-middle-cell;}
+#ldc{grid: left-down-cell;}
+#dc{grid: down-cell;}
+#rdc{grid: right-down-cell;}
+
+.cell {
+  background-color: rgb(33, 58, 58);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(1em, 1em + 3vw, 10em);
+}
+
+.cell:hover {
+  cursor: crosshair;
+  transition: 400ms;
+  background-color: rgb(29, 51, 51);
+}
+
+.cell span{
+  user-select: none;
+  pointer-events: none;
+}
+
+#iniciar{
+  background-color: rgba(238, 130, 238, 0);
+  border: none;
+  font-size: 2em;
+  transition: 0.2s;
+}
+
+#iniciar:hover{
+  transition: 0.2s;
+  font-size: 2.5em;
+  cursor: pointer;
+}
+
+#mostra-vez{
+  user-select: none;
+  font-size: 2em;
+}
+
+svg{
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+}
